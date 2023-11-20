@@ -1,3 +1,4 @@
+const Space = require('../models/Space');
 const { GraphQLObjectType, GraphQLString, GraphQLList, GraphQLSchema, GraphQLID } = require('graphql');
 
 const SpaceType = new GraphQLObjectType({
@@ -20,7 +21,7 @@ const RootQuery = new GraphQLObjectType({
     spaces: {
       type: new GraphQLList(SpaceType),
       resolve(parent, args) {
-        //return the space data from DB
+        return Space.find();
       }
     }
   }
@@ -41,9 +42,15 @@ const mutation = new GraphQLObjectType({
         thumbnailImage: { type: GraphQLString }
       },
       resolve(parent, args) {
-        return {
-          spaceName: args.spaceName
-        }
+          const space = new Space({
+            spaceName: args.spaceName,
+            availableFrom: args.availableFrom,
+            rate: args.rate,
+            latitude: args.latitude,
+            longitude: args.longitude,
+            thumbnailImage: args.thumbnailImage
+          });
+          return space.save();
       }
     }
   }
