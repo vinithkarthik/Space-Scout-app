@@ -4,7 +4,7 @@ const SpaceType = new GraphQLObjectType({
   name: 'Space',
   fields: () => ({
     id: { type: GraphQLID },
-    name: { type: GraphQLString },
+    spaceName: { type: GraphQLString },
     availableFrom: { type: GraphQLString },
     rate: { type: GraphQLString },
     latitude: { type: GraphQLString },
@@ -26,6 +26,30 @@ const RootQuery = new GraphQLObjectType({
   }
 });
 
+//Mutations
+const mutation = new GraphQLObjectType({
+  name: 'Mutation',
+  fields: {
+    addSpaces: {
+      type: SpaceType,
+      args: {
+        spaceName: { type: GraphQLString },
+        availableFrom: { type: GraphQLString },
+        rate: { type: GraphQLString },
+        latitude: { type: GraphQLString },
+        longitude: { type: GraphQLString },
+        thumbnailImage: { type: GraphQLString }
+      },
+      resolve(parent, args) {
+        return {
+          spaceName: args.spaceName
+        }
+      }
+    }
+  }
+});
+
 module.exports = new GraphQLSchema({
-  query: RootQuery
+  query: RootQuery,
+  mutation
 })
