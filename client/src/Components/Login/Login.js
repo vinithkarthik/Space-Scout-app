@@ -1,45 +1,52 @@
 import TextBox from "../Common/TextBox";
 import ButtonComp from "../Common/ButtonComp";
 import { Divider } from "react-native-paper";
-import { View } from "react-native";
-import { StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import Label from "../Common/Label";
-const Login = () => {
+
+const Login = ({navigation}) => {
   return (
-    <>
-    <Label 
-      variant={'displaySmall'} 
-      label={'Space Scout'} 
-      style={compStyles.appName}
-    />
     <View style={styles.container}>
-      <TextBox 
-        label={'Email'}
-        style={compStyles.containerChildren}
+      <Label 
+        variant={'displaySmall'} 
+        label={'Space Scout'} 
+        style={compStyles.appName}
       />
-      <TextBox 
-        label={'Password'}
-        style={compStyles.containerChildren}
-      />
-      <ButtonComp 
-        label={'Login'}
-        style={compStyles.containerChildren}
-      />
-      <Divider 
-        style={compStyles.containerChildren}
-      />
-      <ButtonComp 
-        icon={'google'}
-        label={'Google'}
-        style={compStyles.containerChildren}
-      />
+      <View style={styles.loginContainer}>
+        <TextBox 
+          label={'Email'}
+          style={compStyles.loginContainerChildren}
+        />
+        <TextBox 
+          label={'Password'}
+          style={compStyles.loginContainerChildren}
+        />
+        <ButtonComp 
+          label={'Login'}
+          style={compStyles.loginContainerChildren}
+        />
+        <Divider 
+          style={compStyles.loginContainerChildren}
+        />
+        <ButtonComp 
+          icon={'google'}
+          label={'Google'}
+          style={compStyles.loginContainerChildren}
+          onPress={() => navigation.navigate('StorageSpaceList')}
+        />
+      </View>
     </View>
-    </>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  loginContainer: {
     flex: 1,
     width: '100%',
     padding: '20px',
@@ -48,7 +55,7 @@ const styles = StyleSheet.create({
 });
 
 const compStyles = {
-  containerChildren: {
+  loginContainerChildren: {
     marginBottom: '30px'
   },
   appName: {

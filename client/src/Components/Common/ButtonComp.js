@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { Button } from 'react-native-paper';
 
-const ButtonComp = ({ icon, label }) => (
+const ButtonComp = ({ icon, label, style, onPress }) => (
   <Button 
     icon={icon} 
     mode="contained" 
-    onPress={() => console.log('Pressed')}
+    onPress={() => onPress()}
+    style={style}
   >
     {label}
   </Button>
