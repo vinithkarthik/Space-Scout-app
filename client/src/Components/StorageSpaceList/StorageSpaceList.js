@@ -1,8 +1,13 @@
 import { View, StyleSheet } from "react-native";
 import SearchBar from "../Common/SearchBar";
 import SpaceCard from "../Common/SpaceCard";
+import { useQuery } from "@apollo/client";
+import { GET_STORAGE_SPACE_LIST } from "../../Queries/SpaceQuery";
 
 const StorageSpaceList = () => {
+    const { loading, error, data } = useQuery(GET_STORAGE_SPACE_LIST);
+    console.log('==data', data);
+
   return ( 
     <View style={styles.storageSpaceeContainer}>
       <SearchBar />
