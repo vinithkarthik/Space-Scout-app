@@ -3,13 +3,13 @@ import { Icon, Card, Text } from 'react-native-paper';
 import { View } from 'react-native';
 
 
-const SpaceCard = () => (
-  <Card>
-    <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+const SpaceCard = ({spaceName, rate}) => (
+  <Card style={compStyles.cardContainer}>
+    <Card.Cover style={compStyles.cardCover} source={{ uri: 'https://picsum.photos/700' }} />
     <Card.Content style={compStyles.content} >
       <View>
-        <Text variant="titleMedium">{'Space available in OMR'}</Text>
-        <Text variant="bodyMedium">{'3000rs per month'}</Text>
+        <Text variant="titleMedium">{spaceName}</Text>
+        <Text variant="bodyMedium">{`${rate}Rs per month`}</Text>
       </View>
       <View>
         <Icon
@@ -25,9 +25,17 @@ const SpaceCard = () => (
 export default SpaceCard;
 
 const compStyles = {
+  cardContainer: {
+    marginTop: '15px'
+  },
+  cardCover: {  
+    margin: '10px'
+  },
   content: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: '5px'
+    paddingLeft: '15px',
+    paddingRight: '15px',
+    paddingBottom: '10px'
   }
 }

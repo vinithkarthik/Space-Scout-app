@@ -11,7 +11,11 @@ const StorageSpaceList = () => {
   return ( 
     <View style={styles.storageSpaceeContainer}>
       <SearchBar />
-      <SpaceCard />
+      {
+        data?.spaces && data.spaces.map((spaceCardObject) => {
+          return <SpaceCard {...spaceCardObject} />
+        })
+      }
     </View>
    );
 }
