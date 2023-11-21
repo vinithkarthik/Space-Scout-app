@@ -12,7 +12,7 @@ const SearchBar = ({style}) => {
       placeholder="Search"
       onChangeText={onChangeSearch}
       value={searchQuery}
-      style={[{ color: theme.colors.primary }, style]}
+      style={[{ backgroundColor: theme.colors.secondary }, style]}
     />
   );
 };

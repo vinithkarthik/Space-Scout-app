@@ -4,13 +4,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Login from './src/Components/Login/Login';
 import StorageSpaceList from './src/Components/StorageSpaceList/StorageSpaceList';
+import StorageSpaceDetailView from './src/Components/StorageSpaceDetailView/StorageSpaceDetailView';
 
 const theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
     primary: '#987654',
-    secondary: 'yellow',
+    secondary: '#EFE0CD',
   },
 };
 
@@ -29,6 +30,7 @@ export default function App() {
           <Stack.Navigator initialRouteName="Login">
           <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
           <Stack.Screen name="StorageSpaceList" component={StorageSpaceList} options={{ headerShown: false }} />
+          <Stack.Screen name="StorageSpaceDetailView" component={StorageSpaceDetailView} options={{ headerShown: false }} />
         </Stack.Navigator>
         </NavigationContainer>
       </PaperProvider>

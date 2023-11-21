@@ -49,17 +49,17 @@ const styles = StyleSheet.create({
   loginContainer: {
     flex: 1,
     width: '100%',
-    padding: '20px',
+    padding: '5%',
     justifyContent: 'center'
   }
 });
 
 const compStyles = {
   loginContainerChildren: {
-    marginBottom: '30px'
+    marginBottom: '10%'
   },
   appName: {
-    marginTop: '30px'
+    marginTop: '30%'
   }
 }
 
