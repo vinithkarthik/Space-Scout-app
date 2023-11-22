@@ -5,20 +5,26 @@ import { useQuery } from "@apollo/client";
 import { GET_STORAGE_SPACE_LIST } from "../../Queries/SpaceQuery";
 
 const StorageSpaceList = ({navigation}) => {
-    const { loading, error, data } = useQuery(GET_STORAGE_SPACE_LIST);
-    console.log('==data', data);
-
+  const { loading, error, data = [] } = useQuery(GET_STORAGE_SPACE_LIST);
+  console.log('==data', data);
+  let dataWithImgSrc = JSON.parse(JSON.stringify(data));
+  const imgSrc = [{src: require('../../../assets/garage1.jpg')}, {src: require('../../../assets/garage2.jpg')}, {src: require('../../../assets/garage3.jpg')}]
+  dataWithImgSrc = dataWithImgSrc?.spaces?.map((space, index) => {
+    space.src = imgSrc[index].src
+    return space;
+  });
+  console.log('==dataWithImgSrc', dataWithImgSrc);
   return ( 
     <View style={styles.storageSpaceeContainer}>
       <SearchBar />
       <ScrollView>
       {
-        data?.spaces && data.spaces.map((spaceCardObject) => {
+        dataWithImgSrc && dataWithImgSrc.map((spaceCardObject) => {
           return <SpaceCard {...spaceCardObject} key={spaceCardObject.spaceName} onPress={() => navigation.navigate('StorageSpaceDetailView')} />
         })
       }
       {
-        data?.spaces && data.spaces.map((spaceCardObject) => {
+        dataWithImgSrc && dataWithImgSrc.map((spaceCardObject) => {
           return <SpaceCard {...spaceCardObject} key={spaceCardObject.spaceName} onPress={() => navigation.navigate('StorageSpaceDetailView')} />
         })
       }

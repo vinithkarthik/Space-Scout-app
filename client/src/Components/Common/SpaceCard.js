@@ -3,11 +3,11 @@ import { Icon, Card, Text, useTheme } from 'react-native-paper';
 import { View } from 'react-native';
 
 
-const SpaceCard = ({spaceName, rate, onPress}) => {
+const SpaceCard = ({spaceName, rate, src, onPress}) => {
   const theme = useTheme();
   return (
   <Card style={[{ backgroundColor: theme.colors.secondary }, compStyles.cardContainer]} onPress={onPress}>
-    <Card.Cover style={compStyles.cardCover} source={{ uri: 'https://picsum.photos/700' }} />
+    <Card.Cover style={compStyles.cardCover} source={src} />
     <Card.Content style={compStyles.content} >
       <View>
         <Text variant="titleMedium">{spaceName}</Text>

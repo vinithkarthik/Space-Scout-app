@@ -24,6 +24,7 @@ const Login = ({navigation}) => {
         <ButtonComp 
           label={'Login'}
           style={compStyles.loginContainerChildren}
+          onPress={() => navigation.navigate('StorageSpaceList')}
         />
         <Divider 
           style={compStyles.loginContainerChildren}

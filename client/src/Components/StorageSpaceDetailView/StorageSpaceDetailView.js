@@ -31,8 +31,8 @@ const StorageSpaceDetailView = () => {
   return ( 
     <View style={styles.container}>
       {isVisible && <ModalWindow isVisible={isVisible} onHide={()=>toggleVisible(false)} />}
-      <Image source ={require('../../../assets/adaptive-icon.png')} style={styles.spaceImg}/>
-      {/* <ScrollView> */}
+      <Image source ={require('../../../assets/garage1.jpg')} style={styles.spaceImg}/>
+      <ScrollView>
       <View style={styles.detailViewContent}>
         <Text variant="headlineMedium" style={compStyles.heading} >Space available in OMR</Text>
         <Text variant="titleMedium" >Ample amount of space available with Air conditioned facility</Text>
@@ -60,13 +60,14 @@ const StorageSpaceDetailView = () => {
           </View>
         </View>
       </View>
-      {/* </ScrollView> */}
+      </ScrollView>
     </View>
    );
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex:1,
     backgroundColor: '#fff',
   },
   detailViewContent: {
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
   footer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // paddingBottom: '3%'
+    paddingBottom: '3%'
   }
 });
 
